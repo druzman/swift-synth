@@ -7,6 +7,7 @@
 //
 
 #import "SWSynth.h"
+#import "SWOscillator.h"
 
 @implementation SWSynth
 
@@ -15,11 +16,14 @@
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        // TODO: init with actual default signal
-        shared = [[SWSynth alloc] initWithSignal:nil];
+        shared = [[SWSynth alloc] init];
     });
 
     return shared;
+}
+
+-(instancetype) init {
+    return [self initWithSignal:[SWOscillator sine]];
 }
 
 -(instancetype) initWithSignal:(SWSignalFunctionType) signal {

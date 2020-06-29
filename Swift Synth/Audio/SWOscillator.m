@@ -8,6 +8,15 @@
 
 #import "SWOscillator.h"
 
+float SWOscillatorAmplitude = 1.0;
+float SWOscillatorFrequency = 440.0;
+
 @implementation SWOscillator
+
++(SWSignalFunctionType) sine {
+    return ^float(float time) {
+        return SWOscillatorAmplitude * sin(2.0 * M_PI * SWOscillatorFrequency * time);
+    };
+}
 
 @end

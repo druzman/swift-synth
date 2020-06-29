@@ -11,7 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern float SWOscillatorAmplitude;
+extern float SWOscillatorFrequency;
+
 @interface SWOscillator : NSObject
+
++(SWSignalFunctionType) sine;
 
 @end
 

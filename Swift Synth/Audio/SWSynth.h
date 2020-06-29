@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype) shared;
 
+-(instancetype) init;
 -(instancetype) initWithSignal:(SWSignalFunctionType) signal;
 
 -(void) setWaveformToSignal:(SWSignalFunctionType) signal;
