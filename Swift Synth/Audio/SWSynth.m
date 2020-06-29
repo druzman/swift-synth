@@ -54,6 +54,16 @@
     self.signal = signal;
 }
 
+#pragma mark - Volume
+
+- (float) volume {
+    return self.audioEngine.mainMixerNode.outputVolume;
+}
+
+-(void) setVolume:(float) volume {
+    self.audioEngine.mainMixerNode.outputVolume = volume;
+}
+
 #pragma mark - Private
 
 -(void) setupEngine {
