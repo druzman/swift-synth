@@ -38,6 +38,7 @@
 		90AF2A9A24AA508000EDE75D /* SWOscillator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWOscillator.m; sourceTree = "<group>"; };
 		90AF2A9C24AA50F300EDE75D /* SWSynth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWSynth.h; sourceTree = "<group>"; };
 		90AF2A9D24AA50F300EDE75D /* SWSynth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWSynth.m; sourceTree = "<group>"; };
+		90AF2A9F24AA541200EDE75D /* SWOscillatorDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWOscillatorDefinitions.h; sourceTree = "<group>"; };
 		DB7A8235238817320075C7C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +103,7 @@
 				90AF2A9A24AA508000EDE75D /* SWOscillator.m */,
 				90AF2A9C24AA50F300EDE75D /* SWSynth.h */,
 				90AF2A9D24AA50F300EDE75D /* SWSynth.m */,
+				90AF2A9F24AA541200EDE75D /* SWOscillatorDefinitions.h */,
 			);
 			path = Audio;
 			sourceTree = "<group>";

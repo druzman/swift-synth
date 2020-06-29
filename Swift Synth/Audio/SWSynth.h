@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SWOscillatorDefinitions.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef float(^SWSignalFunctionType)(float time);
 
 @interface SWSynth : NSObject
 
