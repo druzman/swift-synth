@@ -10,6 +10,8 @@
 #import "SWOscillator.h"
 #import <AVFoundation/AVFoundation.h>
 
+NSString* SWSynthNotificationPlaybackStateChanged = @"SWSynthNotificationPlaybackStateChanged";
+
 @interface SWSynth ()
 
 @property(nonatomic, copy) SWSignalFunctionType signal;
@@ -19,6 +21,8 @@
 @property(nonatomic, assign) float time;
 @property(nonatomic, assign) double sampleRate;
 @property(nonatomic, assign) float deltaTime;
+
+@property(nonatomic, assign) BOOL isPlaying;
 
 @end
 
@@ -62,6 +66,22 @@
 
 -(void) setVolume:(float) volume {
     self.audioEngine.mainMixerNode.outputVolume = volume;
+
+    BOOL isPlaying = (volume > 0.001);
+
+    [self updatePlaybackState:isPlaying];
+}
+
+#pragma mark - Playback state
+
+-(void) updatePlaybackState:(BOOL) isPlaying {
+    if (self.isPlaying == isPlaying) {
+        return;
+    }
+
+    self.isPlaying = isPlaying;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:SWSynthNotificationPlaybackStateChanged object:self];
 }
 
 #pragma mark - Private

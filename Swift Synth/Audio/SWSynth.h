@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SWOscillatorDefinitions.h"
 
+extern NSString* SWSynthNotificationPlaybackStateChanged;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SWSynth : NSObject
@@ -21,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) setWaveformToSignal:(SWSignalFunctionType) signal;
 
 @property(nonatomic, assign) float volume;
+@property(nonatomic, readonly) BOOL isPlaying;
 
 @end
 
