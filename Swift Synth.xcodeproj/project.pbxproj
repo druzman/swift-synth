@@ -13,8 +13,6 @@
 		550D024B22E526DE002C57C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550D024A22E526DE002C57C9 /* Assets.xcassets */; };
 		550D024E22E526DE002C57C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550D024C22E526DE002C57C9 /* LaunchScreen.storyboard */; };
 		550D025622E53233002C57C9 /* UIView+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D025522E53233002C57C9 /* UIView+Add.swift */; };
-		550D025822E55477002C57C9 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D025722E55477002C57C9 /* Synth.swift */; };
-		550D025E22E557A5002C57C9 /* Oscillator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D025D22E557A5002C57C9 /* Oscillator.swift */; };
 		55FB1E6322EE0B8700AED3D2 /* UIColor+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB1E6222EE0B8700AED3D2 /* UIColor+Set.swift */; };
 		90AF2A9B24AA508000EDE75D /* SWOscillator.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2A9A24AA508000EDE75D /* SWOscillator.m */; };
 		90AF2A9E24AA50F300EDE75D /* SWSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2A9D24AA50F300EDE75D /* SWSynth.m */; };
@@ -30,8 +28,6 @@
 		550D024D22E526DE002C57C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		550D024F22E526DE002C57C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550D025522E53233002C57C9 /* UIView+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Add.swift"; sourceTree = "<group>"; };
-		550D025722E55477002C57C9 /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
-		550D025D22E557A5002C57C9 /* Oscillator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscillator.swift; sourceTree = "<group>"; };
 		55FB1E6222EE0B8700AED3D2 /* UIColor+Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Set.swift"; sourceTree = "<group>"; };
 		90AF2A9824AA507F00EDE75D /* Swift Synth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift Synth-Bridging-Header.h"; sourceTree = "<group>"; };
 		90AF2A9924AA508000EDE75D /* SWOscillator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWOscillator.h; sourceTree = "<group>"; };
@@ -97,8 +93,6 @@
 		550D025A22E556BA002C57C9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				550D025722E55477002C57C9 /* Synth.swift */,
-				550D025D22E557A5002C57C9 /* Oscillator.swift */,
 				90AF2A9924AA508000EDE75D /* SWOscillator.h */,
 				90AF2A9A24AA508000EDE75D /* SWOscillator.m */,
 				90AF2A9C24AA50F300EDE75D /* SWSynth.h */,
@@ -209,8 +203,6 @@
 				550D025622E53233002C57C9 /* UIView+Add.swift in Sources */,
 				550D024622E526DD002C57C9 /* SynthViewController.swift in Sources */,
 				550D024222E526DD002C57C9 /* AppDelegate.swift in Sources */,
-				550D025E22E557A5002C57C9 /* Oscillator.swift in Sources */,
-				550D025822E55477002C57C9 /* Synth.swift in Sources */,
 				90AF2A9E24AA50F300EDE75D /* SWSynth.m in Sources */,
 				550D024422E526DD002C57C9 /* SceneDelegate.swift in Sources */,
 				90AF2A9B24AA508000EDE75D /* SWOscillator.m in Sources */,
