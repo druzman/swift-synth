@@ -11,6 +11,14 @@ class SynthViewController: UIViewController {
 
 		return label
     }()
+
+    private lazy var playbackStateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
         
     private lazy var waveformSelectorSegmentedControl: UISegmentedControl = {
         var images = [#imageLiteral(resourceName: "Sine Wave Icon"), #imageLiteral(resourceName: "Triangle Wave Icon"), #imageLiteral(resourceName: "Sawtooth Wave Icon"), #imageLiteral(resourceName: "Square Wave Icon"), #imageLiteral(resourceName: "Noise Wave Icon")]
@@ -28,11 +36,20 @@ class SynthViewController: UIViewController {
         return segmentedControl
     }()
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		setUpView()
         setUpSubviews()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playbackStateChanged),
+                                               name: NSNotification.Name(rawValue: SWSynthNotificationPlaybackStateChanged),
+                                               object: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,7 +79,15 @@ class SynthViewController: UIViewController {
     }
     
     // MARK: Selector Functions
-    
+
+    @objc private func playbackStateChanged() {
+        if SWSynth.shared().isPlaying {
+            playbackStateLabel.text = "Playing..."
+        } else {
+            playbackStateLabel.text = ""
+        }
+    }
+
     @objc private func updateOscillatorWaveform() {
         let waveform = SWWaveform(rawValue: waveformSelectorSegmentedControl.selectedSegmentIndex)!
         switch waveform {
@@ -85,7 +110,7 @@ class SynthViewController: UIViewController {
     }
     
     private func setUpSubviews() {
-        view.add(waveformSelectorSegmentedControl, parameterLabel)
+        view.add(waveformSelectorSegmentedControl, parameterLabel, playbackStateLabel)
         
         NSLayoutConstraint.activate([
             waveformSelectorSegmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -93,7 +118,10 @@ class SynthViewController: UIViewController {
             waveformSelectorSegmentedControl.widthAnchor.constraint(equalToConstant: 250),
             
             parameterLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            parameterLabel.centerYAnchor.constraint(equalTo: waveformSelectorSegmentedControl.centerYAnchor)
+            parameterLabel.centerYAnchor.constraint(equalTo: waveformSelectorSegmentedControl.centerYAnchor),
+
+            playbackStateLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            playbackStateLabel.topAnchor.constraint(equalTo: waveformSelectorSegmentedControl.bottomAnchor, constant: 10)
         ])
     }
     
