@@ -11,12 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, SWWaveform) {
+typedef NS_ENUM(NSInteger, SWWaveform) {
     SWWaveformSine,
     SWWaveformTriangle,
     SWWaveformSawtooth,
     SWWaveformSquare,
-    SWWaveformWhiteNoies
+    SWWaveformWhiteNoise
 };
 
 typedef float(^SWSignalFunctionType)(float time);
