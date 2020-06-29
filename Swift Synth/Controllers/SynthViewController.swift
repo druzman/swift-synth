@@ -64,18 +64,19 @@ class SynthViewController: UIViewController {
     // MARK: Selector Functions
     
     @objc private func updateOscillatorWaveform() {
-        let waveform = Waveform(rawValue: waveformSelectorSegmentedControl.selectedSegmentIndex)!
+        let waveform = SWWaveform(rawValue: waveformSelectorSegmentedControl.selectedSegmentIndex)!
         switch waveform {
-            case .sine: Synth.shared.setWaveformTo(Oscillator.sine)
-            case .triangle: Synth.shared.setWaveformTo(Oscillator.triangle)
-            case .sawtooth: Synth.shared.setWaveformTo(Oscillator.sawtooth)
-            case .square: Synth.shared.setWaveformTo(Oscillator.square)
-            case .whiteNoise: Synth.shared.setWaveformTo(Oscillator.whiteNoise)
+        case .sine: SWSynth.shared().setWaveformToSignal(SWOscillator.sine())
+        case .triangle: SWSynth.shared().setWaveformToSignal(SWOscillator.triangle())
+        case .sawtooth: SWSynth.shared().setWaveformToSignal(SWOscillator.sawtooth())
+        case .square: SWSynth.shared().setWaveformToSignal(SWOscillator.square())
+        case .whiteNoise: SWSynth.shared().setWaveformToSignal(SWOscillator.whiteNoise())
+        default: break
         }
     }
     
     @objc private func setPlaybackStateTo(_ state: Bool) {
-        Synth.shared.volume = state ? 0.5 : 0
+        SWSynth.shared().volume = state ? 0.5 : 0
     }
     
     private func setUpView() {
@@ -97,11 +98,11 @@ class SynthViewController: UIViewController {
     }
     
     private func setSynthParametersFrom(_ coord: CGPoint) {
-        Oscillator.amplitude = Float((view.bounds.height - coord.y) / view.bounds.height) 
-        Oscillator.frequency = Float(coord.x / view.bounds.width) * 1014 + 32
+        SWOscillatorAmplitude = Float((view.bounds.height - coord.y) / view.bounds.height)
+        SWOscillatorFrequency = Float(coord.x / view.bounds.width) * 1014 + 32
         
-        let amplitudePercent = Int(Oscillator.amplitude * 100)
-        let frequencyHertz = Int(Oscillator.frequency)
+        let amplitudePercent = Int(SWOscillatorAmplitude * 100)
+        let frequencyHertz = Int(SWOscillatorFrequency)
         parameterLabel.text = "Frequency: \(frequencyHertz) Hz  Amplitude: \(amplitudePercent)%"
     }
 }
