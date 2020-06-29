@@ -17,6 +17,10 @@ extern float SWOscillatorFrequency;
 @interface SWOscillator : NSObject
 
 +(SWSignalFunctionType) sine;
++(SWSignalFunctionType) triangle;
++(SWSignalFunctionType) sawtooth;
++(SWSignalFunctionType) square;
++(SWSignalFunctionType) whiteNoise;
 
 @end
 

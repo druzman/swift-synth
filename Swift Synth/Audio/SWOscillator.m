@@ -19,4 +19,28 @@ float SWOscillatorFrequency = 440.0;
     };
 }
 
++(SWSignalFunctionType) triangle {
+    return ^float(float time) {
+        return SWOscillatorAmplitude * sin(2.0 * M_PI * SWOscillatorFrequency * time);
+    };
+}
+
++(SWSignalFunctionType) sawtooth {
+    return ^float(float time) {
+        return SWOscillatorAmplitude * sin(2.0 * M_PI * SWOscillatorFrequency * time);
+    };
+}
+
++(SWSignalFunctionType) square {
+    return ^float(float time) {
+        return SWOscillatorAmplitude * sin(2.0 * M_PI * SWOscillatorFrequency * time);
+    };
+}
+
++(SWSignalFunctionType) whiteNoise {
+    return ^float(float time) {
+        return SWOscillatorAmplitude * sin(2.0 * M_PI * SWOscillatorFrequency * time);
+    };
+}
+
 @end
